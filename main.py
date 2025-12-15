@@ -32,6 +32,7 @@ classifier = Classifier(config.CONFIG_CLASSIFICATION)
 #-----------------------------
 
 def auto_handle(cam_ids, imgs):
+    target = []
     data = dict()
     # Lọc những cam-id được phép tiếp tục
     for cam_id, img in zip(cam_ids, imgs):
@@ -75,8 +76,24 @@ def auto_handle(cam_ids, imgs):
         
 
     # Phân loại lỗi và lưu trữ
+    # result_classi = classifier.classify(input_img)
+    # for infor, result in zip(infor_img, result_classi):
+    #     if result == 1:
+    #         target.append[(*infor, result)]
+    #         database.save_char_false(*infor)
+    
     result_classi = classifier.classify(input_img)
-    for infor, result in zip(infor_img, result_classi):
-        if result == 1:
-            database.save_char_false(*infor)
-    print('chạy xong')
+    
+    for (cam_id, char_id), (pred, prob) in zip(infor_img, result_classi):
+        
+        if pred == 1:
+            target.append({
+                "cam_id": cam_id,
+                "char_id": char_id,
+                "pred": int(pred),
+                "prob": int(prob)
+            })
+            database.save_char_false(cam_id, char_id)
+            
+    print('chạy xong') 
+    return target

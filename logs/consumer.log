@@ -1,0 +1,83 @@
+2025-12-15 15:03:29,286 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:30,039 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.754s
+2025-12-15 15:03:30,039 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 16, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,306 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:30,366 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=2 | time=0.060s
+2025-12-15 15:03:30,367 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 30, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,367 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,380 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:30,475 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=3 | time=0.095s
+2025-12-15 15:03:30,475 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 16, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,475 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 30, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,477 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,482 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:30,562 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=2 | time=0.080s
+2025-12-15 15:03:30,563 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 30, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,563 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:30,925 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:30,997 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.072s
+2025-12-15 15:03:31,003 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:31,052 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.047s
+2025-12-15 15:03:31,058 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:31,130 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=2 | time=0.071s
+2025-12-15 15:03:31,130 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 30, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:31,130 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:31,140 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:31,203 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.063s
+2025-12-15 15:03:31,475 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:31,534 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.058s
+2025-12-15 15:03:31,543 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:31,597 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.054s
+2025-12-15 15:03:31,605 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:31,654 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=2 | time=0.049s
+2025-12-15 15:03:31,654 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 30, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:31,654 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:31,978 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,012 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.034s
+2025-12-15 15:03:32,012 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,045 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.033s
+2025-12-15 15:03:32,053 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,081 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.028s
+2025-12-15 15:03:32,085 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,112 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.026s
+2025-12-15 15:03:32,504 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,533 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.029s
+2025-12-15 15:03:32,540 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,562 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.022s
+2025-12-15 15:03:32,568 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,610 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=3 | time=0.041s
+2025-12-15 15:03:32,610 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 5, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:32,610 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 30, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:32,611 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:32,623 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,662 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.040s
+2025-12-15 15:03:32,665 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,699 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.034s
+2025-12-15 15:03:32,700 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:32,938 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:32,973 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.035s
+2025-12-15 15:03:32,973 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,011 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.038s
+2025-12-15 15:03:33,011 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:33,019 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,047 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.028s
+2025-12-15 15:03:33,323 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,354 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.031s
+2025-12-15 15:03:33,354 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:33,364 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,393 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.030s
+2025-12-15 15:03:33,393 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:33,401 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,432 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=0 | time=0.029s
+2025-12-15 15:03:33,632 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,675 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.043s
+2025-12-15 15:03:33,675 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:33,685 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,726 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.041s
+2025-12-15 15:03:33,726 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:33,874 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,918 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.043s
+2025-12-15 15:03:33,918 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}
+2025-12-15 15:03:33,923 - Consumer - INFO - Receive batch: 2 cams
+2025-12-15 15:03:33,966 - Consumer - INFO - cams=['cam_1', 'cam_2'] | events_len=1 | time=0.043s
+2025-12-15 15:03:33,966 - Consumer - INFO - Event| {'cam_id': 'cam_2', 'char_id': 36, 'pred': 1, 'prob': 0}

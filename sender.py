@@ -4,12 +4,10 @@ import cv2, json, base64, time
 from kafka import KafkaProducer
 import config
 
-BOOTSTRAP = "localhost:9092"
-TOPIC = "cams.frames"
 
 # init producer
 producer = KafkaProducer(
-    bootstrap_servers = BOOTSTRAP,
+    bootstrap_servers = config.BOOTSTRAP,
     value_serializer = lambda v: json.dumps(v).encode('utf-8')
 )
 
@@ -50,7 +48,7 @@ def get_data(config) -> dict:
 
 def encode_img_b64(img, quality = 80):
     """  
-    Encode image into base64 for send to kafka-topic
+    Encode image into base64 for send to kafka-SENDER_TOPIC
     """
     
     ok, buf = cv2.imencode(".jpg", img, [int(cv2.IMWRITE_JPEG_QUALITY), quality])
@@ -76,7 +74,7 @@ for idx in range(num_frames):
         "imgs": [encode_img_b64(img) for img in imgs]
     }
     
-    producer.send(TOPIC, payload)
+    producer.send(config.SENDER_TOPIC, payload)
     producer.flush()
     
     time.sleep(0.03)
