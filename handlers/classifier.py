@@ -22,7 +22,7 @@ class TrafficCNN(nn.Module):
 
         # Tự Động Tính Kích Thước Flatten
         with torch.no_grad():
-            dummy_input = torch.zeros(1, *input_shape)
+            dummy_input = torch.zeros(1, *input_shape, device = next(self.features.parameters()).device)
             out = self.features(dummy_input)
             self.flatten_dim = out.view(1, -1).size(1)
         
@@ -142,8 +142,10 @@ class Classifier:
         try:
             self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
             self.model = TrafficCNN(config)
-            checkpoint = torch.load(config.get('model_path', ''), map_location=self.device)
+            checkpoint = torch.load(config.get('model_path', ''), map_location="cpu")
             self.model.load_state_dict(checkpoint['model_state_dict'])
+            
+            self.model = self.model.to(self.device).float()     # fix
             self.model.eval()
             print('[INFO] 🟢 Model classification initialized successfully')
         except:
@@ -152,8 +154,8 @@ class Classifier:
     def classify(self, imgs):
         if len(imgs) == 0:
             return []
-        img_tensor = torch.stack(imgs).float()/255.0
-        img_tensor = img_tensor.to(self.device)
+        img_tensor = torch.stack(imgs).to(self.device, dtype=torch.float32) / 255.0
+        
         # Bß║»t ─Éß║ºu Ph├ón Loß║íi
         with torch.no_grad():
             outputs = self.model(img_tensor)
