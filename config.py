@@ -11,7 +11,7 @@ CAMS_TEST = {
         {'cam_id':'cam_2',
         'video_path':f"{CURRENT_FOLDER}/storage/video/cam_2.mp4"}
         ],
-    'amount_frame': 10
+    'amount_frame': 30
     }
 
 # Các thông số liên quan đến mô hình
@@ -47,3 +47,7 @@ CONFIG_STORE = {
     'database_path': f"{CURRENT_FOLDER}/storage/databse.db",
     'mask_path_common': f"{CURRENT_FOLDER}/storage/mask",
 }
+
+BOOTSTRAP = "localhost:9092"
+SENDER_TOPIC = "cams.frames"
+RECEIVER_TOPIC = "cams.results"
