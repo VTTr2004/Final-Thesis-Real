@@ -1,5 +1,8 @@
 import numpy as np
 from ultralytics import YOLO
+import torch
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class Segmentater:
     def __init__(self, config):
@@ -24,5 +27,5 @@ class Segmentater:
         return merged_masks
 
     def get_mask(self, imgs):
-        results = self.model.predict(imgs, verbose=False)
+        results = self.model.predict(imgs, verbose=False, device = device)
         return self.transform(results)
