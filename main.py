@@ -34,15 +34,20 @@ classifier = Classifier(config.CONFIG_CLASSIFICATION)
 def auto_handle(cam_ids, imgs):
     target = []
     data = dict()
+    cam_img = dict()
     # Lọc những cam-id được phép tiếp tục
     for cam_id, img in zip(cam_ids, imgs):
         path = database.get_cam_mask(cam_id)
+        cam_img[cam_id] = img
         if path != '':
             data[cam_id] = {
                 'mask_path': path,
                 'data': img,
                 'image_shape': img.shape
             }
+
+    # 📷 Log số camera nhận được
+    print(f"📷 Nhận được {len(cam_ids)} camera, lọc còn {len(data)} camera có mask hợp lệ.")
             
     # Trích xuất vật thể
     img_predict = [val['data'] for val in data.values()]
@@ -71,9 +76,11 @@ def auto_handle(cam_ids, imgs):
     for cam_id in data.keys():
         temp = visualer.get_visual(data[cam_id])
         for infor in temp:
-            infor_img.append((cam_id, infor[0]))
+            infor_img.append((cam_id, infor))
             input_img.append(infor[1])
-        
+    
+    # 🖼️ Log số ảnh được classify
+    print(f"🖼️ Có {len(input_img)} ảnh được dùng để classify.")
 
     # Phân loại lỗi và lưu trữ
     # result_classi = classifier.classify(input_img)
@@ -83,17 +90,20 @@ def auto_handle(cam_ids, imgs):
     #         database.save_char_false(*infor)
     
     result_classi = classifier.classify(input_img)
-    
-    for (cam_id, char_id), (pred, prob) in zip(infor_img, result_classi):
+    pred_count = 0
+    for (cam_id, char), (pred, prob) in zip(infor_img, result_classi):
         
         if pred == 1:
+            pred_count += 1
             target.append({
                 "cam_id": cam_id,
-                "char_id": char_id,
+                "char_id": char[0],
                 "pred": int(pred),
                 "prob": int(prob)
             })
-            database.save_char_false(cam_id, char_id)
+            database.save_char_false(cam_id, char, cam_img[cam_id])
+
+    # ✅ Log số lượng pred == 1
+    print(f"✅ Có {pred_count} vật thể được phân loại là lỗi.")
             
-    print('chạy xong') 
     return target

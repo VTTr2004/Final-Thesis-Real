@@ -55,14 +55,9 @@ class Tracker:
                 char_old = np.array([self.get_value_future(char) for char in chars])
                 char_new = np.array(char_new)
                 old_id, new_id = self.get_min_couple(char_old, char_new)
-                print('============================')
-                print(old_id, new_id)
                 # Cập nhật dữ liệu mới
-                print(chars[old_id])
                 chars[old_id, 5:9] = char_new[new_id] - chars[old_id, 1:5]
                 chars[old_id, 1:5] = char_new[new_id]
-                print(chars[old_id])
-                print('============================')
                 # Xử lý vật thể tracking 
                 chars[[i for i in range(len(chars)) if i not in old_id], -2] += 1
                 chars[old_id, -2] = 0

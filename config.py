@@ -46,6 +46,7 @@ CONFIG_CLASSIFICATION = {
 CONFIG_STORE = {
     'database_path': f"{CURRENT_FOLDER}/storage/databse.db",
     'mask_path_common': f"{CURRENT_FOLDER}/storage/mask",
+    'false_path': f"{CURRENT_FOLDER}/storage/img_false"
 }
 
 BOOTSTRAP = "localhost:9092"

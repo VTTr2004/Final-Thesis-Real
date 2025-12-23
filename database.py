@@ -1,11 +1,11 @@
-import sqlite3, os, datetime
+import sqlite3, os, datetime, cv2
 
 class Database:
     def __init__(self, config):
         # Thông số mặc định
         path = config.get('database_path', 'camera.db')
         self.mask_path_common = config.get('mask_path_common', '')
-
+        self.false_path = config.get('false_path', '')
 
         is_new_db = not os.path.exists(path)
         # Nếu thư mục path chưa tồn tại → tạo
@@ -31,6 +31,7 @@ class Database:
             """
                 CREATE TABLE IF NOT EXISTS camera_mask (
                 id TEXT PRIMARY KEY,
+                mask_path TEXT,
                 last_update TEXT,
                 updated_by TEXT
             );
@@ -113,15 +114,47 @@ class Database:
         )
         self.conn.commit()
 
-    def save_char_false(self, cam_id, char_id):
+    def save_char_false(self, cam_id, char, img):
+        """
+        Lưu thông tin char vào DB nếu chưa có.
+        """
         time_now = datetime.datetime.now().isoformat()
+        char_id = char[0]
+
+        # Kiểm tra xem char_id đã có trong camera_objs_false chưa
         self.cursor.execute(
-            """
-            INSERT INTO camera_objs_false (cam_id, char_id, time_detect)
-            VALUES (?, ?, ?)
-            ON CONFLICT(cam_id, char_id) DO UPDATE SET
-                time_detect = excluded.time_detect;
-            """,
-            (cam_id, char_id, time_now)
+            "SELECT 1 FROM camera_objs_false WHERE cam_id = ? AND char_id = ?",
+            (cam_id, char_id)
         )
-        self.conn.commit()
+        exists = self.cursor.fetchone()
+
+        if not exists:
+            # Lưu vào DB nếu chưa có
+            self.cursor.execute(
+                """
+                INSERT INTO camera_objs_false (cam_id, char_id, time_detect)
+                VALUES (?, ?, ?)
+                """,
+                (cam_id, char_id, time_now)
+            )
+            self.conn.commit()
+
+            # Lưu ảnh ra file, ví dụ theo char_id và timestamp
+            filename = f"{self.false_path}/{cam_id}_{char_id}_{int(datetime.datetime.now().timestamp())}.jpg"
+            cv2.imwrite(filename, img)
+
+def draw(char, img):
+    char_id = char[0]
+    box = char[1:5]  # [x, y, w/h, h]
+    
+    x, y, wh_ratio, h = box
+    w = wh_ratio * h  # tính lại width từ w/h
+
+    # Chuyển sang integer để vẽ
+    x1, y1, x2, y2 = int(x), int(y), int(x + w), int(y + h)
+    
+    # Vẽ rectangle và text
+    cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+    cv2.putText(img, f"ID:{char_id}", (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+    
+    return img
